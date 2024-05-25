@@ -83,11 +83,37 @@ namespace WFLastLaboratory
             Data.Models.Console console = new Data.Models.Console(0, nombre, compania, lanzamiento, generacion);
             conectionDB.InsertConsole(console);
 
+            List<Data.Models.Console> consoles = conectionDB.GetConsoles();
+            consoledDataGrid.DataSource = consoles;
+
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
             companiaBox.Items.AddRange(companias);
+        }
+
+        private void actualizarBtn_Click(object sender, EventArgs e)
+        {
+            string nombre = nombreText.Text;
+            string compania = companiaBox.Text;
+            int lanzamiento = Convert.ToInt32(lanzamientoNum.Text);
+            byte generacion = Convert.ToByte(generacionNum.Text);
+
+            Data.Models.Console console = new Data.Models.Console(0, nombre, compania, lanzamiento, generacion);
+            conectionDB.UpdateConsole(console);
+
+            List<Data.Models.Console> consoles = conectionDB.GetConsoles();
+            consoledDataGrid.DataSource = consoles;
+        }
+
+        private void eliminarBtn_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(idText.Text);
+            conectionDB.DeleteConsole(id);
+
+            List<Data.Models.Console> consoles = conectionDB.GetConsoles();
+            consoledDataGrid.DataSource = consoles;
         }
     }
 }

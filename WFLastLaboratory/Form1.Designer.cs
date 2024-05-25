@@ -220,6 +220,7 @@
             this.actualizarBtn.TabIndex = 17;
             this.actualizarBtn.Text = "Actualizar";
             this.actualizarBtn.UseVisualStyleBackColor = true;
+            this.actualizarBtn.Click += new System.EventHandler(this.actualizarBtn_Click);
             // 
             // eliminarBtn
             // 
@@ -229,6 +230,7 @@
             this.eliminarBtn.TabIndex = 18;
             this.eliminarBtn.Text = "Eliminar";
             this.eliminarBtn.UseVisualStyleBackColor = true;
+            this.eliminarBtn.Click += new System.EventHandler(this.eliminarBtn_Click);
             // 
             // companiaBox
             // 
